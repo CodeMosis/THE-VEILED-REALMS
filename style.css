@@ -7,6 +7,10 @@
     --glow-gold: rgba(212, 160, 23, 0.45);
     --font-title: 'Cinzel Decorative', serif;
     --font-body: 'Cormorant Garamond', serif;
+    --gold-primary: #dfa843;
+    --text-muted: #a0a5ad;
+    --bg-card: rgba(18, 22, 28, 0.85);
+    --border-amber: rgba(223, 168, 67, 0.25);
 }
 
 * {
@@ -23,6 +27,33 @@ html, body {
     background-color: var(--bg-dark);
     font-family: var(--font-body);
     color: var(--text-silver);
+}
+
+@keyframes eyePulse {
+    0% { opacity: 0.25; filter: drop-shadow(0 0 2px #1dd1a1); }
+    100% { opacity: 1; filter: drop-shadow(0 0 12px #1dd1a1); }
+}
+
+@keyframes rimPulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.95; }
+}
+
+@keyframes cloudZoom {
+    0% { transform: scale(1) rotate(0deg); opacity: 0.3; }
+    50% { opacity: 0.7; }
+    100% { transform: scale(1.5) rotate(10deg); opacity: 0.3; }
+}
+
+@keyframes ripplePulse {
+    0% { transform: translateX(-50%) scale(0.1); opacity: 1; }
+    50% { opacity: 0.8; }
+    100% { transform: translateX(-50%) scale(3); opacity: 0; }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .scene-container {
@@ -131,18 +162,8 @@ html, body {
     animation: eyePulse 2s infinite alternate ease-in-out;
 }
 
-@keyframes eyePulse {
-    0% { opacity: 0.25; filter: drop-shadow(0 0 2px #1dd1a1); }
-    100% { opacity: 1; filter: drop-shadow(0 0 12px #1dd1a1); }
-}
-
 .rim-light-path {
     animation: rimPulse 4s infinite alternate ease-in-out;
-}
-
-@keyframes rimPulse {
-    0% { opacity: 0.3; }
-    100% { opacity: 0.95; }
 }
 
 .ui-layer {
@@ -214,8 +235,13 @@ html, body {
     box-shadow: 0 8px 30px rgba(212, 160, 23, 0.25), inset 0 0 20px rgba(212, 160, 23, 0.15);
 }
 
-#enter-btn .btn-arrow { transition: transform 0.3s ease; }
-#enter-btn:hover .btn-arrow { transform: translateX(6px); }
+#enter-btn .btn-arrow { 
+    transition: transform 0.3s ease; 
+}
+
+#enter-btn:hover .btn-arrow { 
+    transform: translateX(6px); 
+}
 
 .hidden-element {
     opacity: 0;
@@ -271,12 +297,6 @@ html, body {
 .layer-mid {
     background-image: radial-gradient(circle at 30% 40%, rgba(212, 160, 23, 0.04) 0%, transparent 50%);
     animation: cloudZoom 12s infinite linear reverse;
-}
-
-@keyframes cloudZoom {
-    0% { transform: scale(1) rotate(0deg); opacity: 0.3; }
-    50% { opacity: 0.7; }
-    100% { transform: scale(1.5) rotate(10deg); opacity: 0.3; }
 }
 
 .traveler-container {
@@ -346,12 +366,6 @@ html, body {
     animation: ripplePulse 1.8s cubic-bezier(0.1, 0.8, 0.3, 1) forwards;
 }
 
-@keyframes ripplePulse {
-    0% { transform: translateX(-50%) scale(0.1); opacity: 1; }
-    50% { opacity: 0.8; }
-    100% { transform: translateX(-50%) scale(3); opacity: 0; }
-}
-
 .cinematic-text-container {
     position: absolute;
     top: 40%;
@@ -414,11 +428,12 @@ html, body {
 
 .portals-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     padding: 0 20px 40px 20px;
+    margin: 0 auto;
 }
 
 .portal-card {
@@ -455,8 +470,6 @@ html, body {
 
 .forest-portal-bg { background: radial-gradient(circle at center, #0f3d2e 0%, #030806 100%); }
 .temple-portal-bg { background: radial-gradient(circle at center, #5c2c10 0%, #080302 100%); }
-.village-portal-bg { background: radial-gradient(circle at center, #3a2c0f 0%, #060402 100%); }
-.mountains-portal-bg { background: radial-gradient(circle at center, #132d42 0%, #02060a 100%); }
 
 .portal-card:hover .portal-frame {
     border-color: var(--text-gold);
@@ -522,21 +535,167 @@ html, body {
     opacity: 1;
 }
 
+#scene-realms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 3rem 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#scene-realms.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.realm-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.scene-title {
+    font-family: var(--font-title);
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--gold-primary);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 20px rgba(223, 168, 67, 0.3);
+    margin-bottom: 0.5rem;
+}
+
+.scene-subtitle {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    letter-spacing: 1px;
+}
+
+.realm-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.realm-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-amber);
+    border-radius: 8px;
+    padding: 3rem 2rem;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(8px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.realm-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+}
+
+.realm-card.forest::before {
+    background: radial-gradient(circle at center, rgba(46, 125, 50, 0.35) 0%, transparent 70%);
+}
+
+.realm-card.temple::before {
+    background: radial-gradient(circle at center, rgba(169, 29, 34, 0.35) 0%, transparent 70%);
+}
+
+.realm-card:hover,
+.realm-card:focus {
+    transform: translateY(-8px);
+    outline: none;
+}
+
+.realm-card:hover::before,
+.realm-card:focus::before {
+    opacity: 1;
+}
+
+.realm-card.forest:hover,
+.realm-card.forest:focus {
+    border-color: #4caf50;
+    box-shadow: 0 12px 35px rgba(46, 125, 50, 0.4);
+}
+
+.realm-card.temple:hover,
+.realm-card.temple:focus {
+    border-color: #e53935;
+    box-shadow: 0 12px 35px rgba(169, 29, 34, 0.4);
+}
+
+.realm-content {
+    position: relative;
+    z-index: 1;
+}
+
+.realm-icon {
+    font-size: 3.8rem;
+    display: block;
+    margin-bottom: 1.2rem;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+    transition: transform 0.4s ease;
+}
+
+.realm-card:hover .realm-icon {
+    transform: scale(1.1);
+}
+
+.realm-title {
+    font-family: var(--font-title);
+    font-size: 1.8rem;
+    color: var(--gold-primary);
+    margin-bottom: 0.8rem;
+    letter-spacing: 2px;
+}
+
+.realm-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.realm-badge {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-primary);
+    border: 1px solid rgba(223, 168, 67, 0.3);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    background: rgba(0, 0, 0, 0.3);
+}
 
 #characters-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
     justify-content: flex-start;
-    padding: 30px 20px;
+    padding: 80px 20px 40px 20px;
     overflow-y: auto;
 }
 
 .back-to-realms-btn {
-    position: absolute;
-    top: 30px;
-    left: 40px;
-    background: rgba(6, 12, 18, 0.7);
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    background: rgba(6, 12, 18, 0.85);
     border: 1px solid rgba(212, 160, 23, 0.3);
     color: var(--text-silver);
-    padding: 10px 20px;
+    padding: 10px 22px;
     font-family: var(--font-body);
     font-size: 0.9rem;
     letter-spacing: 0.15em;
@@ -544,32 +703,40 @@ html, body {
     display: flex;
     align-items: center;
     gap: 8px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(10px);
     transition: all 0.3s ease;
-    z-index: 40;
+    z-index: 50;
+    border-radius: 2px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
 }
 
 .back-to-realms-btn:hover {
     border-color: var(--text-gold);
     color: #ffffff;
-    background: rgba(14, 24, 36, 0.9);
+    background: rgba(14, 24, 36, 0.95);
+    transform: translateX(-3px);
 }
 
 .character-roster-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
     gap: 25px;
     width: 100%;
     max-width: 1300px;
-    padding-bottom: 50px;
+    margin: 0 auto;
+    padding-bottom: 60px;
+}
+
+.realm-char-card[style*="display: none"],
+.realm-char-card[style*="display:none"],
+.realm-char-card.hidden {
+    display: none !important;
 }
 
 .realm-char-card {
-    width: 220px;
+    width: 100%;
     height: 380px;
-    background: rgba(4, 7, 12, 0.8);
+    background: rgba(4, 7, 12, 0.85);
     border: 1px solid rgba(212, 160, 23, 0.2);
     border-radius: 4px;
     padding: 15px;
@@ -593,14 +760,14 @@ html, body {
 
 .realm-char-card:hover {
     border-color: var(--text-gold);
-    transform: translateY(-8px) scale(1.03);
+    transform: translateY(-8px) scale(1.02);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.9), 0 0 20px rgba(212, 160, 23, 0.2);
 }
 
 .char-portrait-frame {
     position: relative;
     width: 100%;
-    height: 220px;
+    height: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -693,7 +860,6 @@ html, body {
     color: #000000;
 }
 
-
 .story-modal-container {
     position: fixed;
     top: 0;
@@ -721,11 +887,12 @@ html, body {
     position: relative;
     width: 100%;
     max-width: 850px;
+    max-height: 90vh;
     background: rgba(6, 11, 17, 0.95);
     border: 1px solid rgba(212, 160, 23, 0.4);
     border-radius: 4px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.95), 0 0 40px rgba(212, 160, 23, 0.15);
-    overflow: hidden;
+    overflow-y: auto;
     transform: translateY(20px) scale(0.96);
     transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -754,6 +921,7 @@ html, body {
 .modal-body {
     display: flex;
     flex-direction: row;
+    min-height: 420px;
 }
 
 .modal-character-art {
@@ -872,7 +1040,9 @@ html, body {
     pointer-events: auto;
 }
 
-.loader-content { text-align: center; }
+.loader-content { 
+    text-align: center; 
+}
 
 .ancient-spinner {
     width: 50px;
@@ -891,13 +1061,12 @@ html, body {
     color: var(--text-gold);
 }
 
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+@media (max-width: 1024px) {
+    .character-roster-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
 }
-
-
-/* RESPONSIVE DESIGN */
 
 @media (max-width: 850px) {
     .modal-body {
@@ -905,7 +1074,7 @@ html, body {
     }
     .modal-character-art {
         width: 100%;
-        height: 180px;
+        height: 220px;
         border-right: none;
         border-bottom: 1px solid rgba(212, 160, 23, 0.15);
     }
@@ -916,7 +1085,38 @@ html, body {
     .back-to-realms-btn {
         top: 15px;
         left: 15px;
-        padding: 8px 14px;
+        padding: 8px 16px;
         font-size: 0.8rem;
     }
+    #characters-stage {
+        padding-top: 70px;
+    }
 }
+
+@media (max-width: 580px) {
+    .ui-layer {
+        padding: 40px 15px 30px 15px;
+    }
+    #enter-btn {
+        padding: 12px 24px;
+        font-size: 0.95rem;
+    }
+    .character-roster-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 15px;
+    }
+    .realm-char-card {
+        height: 340px;
+        padding: 10px;
+    }
+    .char-portrait-frame {
+        height: 160px;
+    }
+    .char-name {
+        font-size: 0.88rem;
+    }
+    .portals-grid, .realm-container {
+        grid-template-columns: 1fr;
+    }
+}
+

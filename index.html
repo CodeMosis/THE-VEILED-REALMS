@@ -12,6 +12,7 @@
 <body>
 
     <canvas id="particle-canvas"></canvas>
+
     <main id="scene-1" class="scene-container active">
         
         <div class="parallax-layer layer-bg" data-depth="0.02">
@@ -105,15 +106,11 @@
     <main id="scene-2" class="scene-container">
 
         <div id="descent-stage" class="stage-container">
-            
-            
             <div class="cloud-layer layer-high"></div>
             <div class="cloud-layer layer-mid"></div>
             
-            
             <div id="traveler-silhouette" class="traveler-container">
                 <svg viewBox="0 0 200 300" width="120" height="180">
-
                     <path d="M100 20 C90 10 70 30 60 70 C40 120 30 180 20 250 C50 220 80 210 100 210 C120 210 150 220 180 250 C170 180 160 120 140 70 C130 30 110 10 100 20 Z" fill="#010305" />
                     <path d="M100 20 C95 60 90 110 70 190 C100 180 100 180 130 190 C110 110 105 60 100 20 Z" fill="#050a10" opacity="0.8" />
                     <path d="M100 15 C88 15 85 32 90 45 C95 52 105 52 110 45 C115 32 112 15 100 15 Z" fill="#020407" />
@@ -125,7 +122,6 @@
                 <div class="landscape-mist-backdrop"></div>
                 
                 <svg class="kerala-horizon-svg" viewBox="0 0 1440 600" preserveAspectRatio="xMidYMax slice">
-
                     <path d="M-50 600 L-50 280 Q150 200 350 250 T800 210 Q1100 160 1500 290 L1500 600 Z" fill="#02060a" opacity="0.85" />
                     <path d="M-20 600 L-20 350 C100 330 180 390 280 340 C400 290 520 380 680 320 C850 260 1020 360 1200 310 C1320 280 1400 340 1480 320 L1480 600 Z" fill="#04090f" />
                     <path d="M80 600 Q110 420 130 310 C100 300 60 310 30 330 C70 290 110 270 140 300 C150 260 180 250 210 280 C180 295 160 320 150 350 Q120 460 110 600 Z" fill="#020407" />
@@ -144,12 +140,12 @@
 
         <div id="realms-stage" class="stage-container">
             <div class="stage-header">
+                
                 <h2 class="realm-title-main">SELECT A REALM</h2>
                 <p class="realm-subtitle-main">Cross the threshold into the forgotten folklore of Kerala</p>
             </div>
 
             <div class="portals-grid">
-                
                 <div class="portal-card" data-realm="forest" onclick="selectRealm('forest')">
                     <div class="portal-frame">
                         <div class="portal-bg forest-portal-bg"></div>
@@ -175,39 +171,10 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="portal-card" data-realm="village" onclick="selectRealm('village')">
-                    <div class="portal-frame">
-                        <div class="portal-bg village-portal-bg"></div>
-                        <div class="portal-runes"></div>
-                        <div class="portal-content">
-                            <span class="portal-icon">🕯</span>
-                            <h3 class="portal-title">VILLAGE</h3>
-                            <p class="portal-quote">"Where stories pass through generations."</p>
-                            <span class="portal-enter-tag">SEEK CHARACTER</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="portal-card" data-realm="mountains" onclick="selectRealm('mountains')">
-                    <div class="portal-frame">
-                        <div class="portal-bg mountains-portal-bg"></div>
-                        <div class="portal-runes"></div>
-                        <div class="portal-content">
-                            <span class="portal-icon">⛰</span>
-                            <h3 class="portal-title">MOUNTAINS</h3>
-                            <p class="portal-quote">"Where the unknown waits beyond mist."</p>
-                            <span class="portal-enter-tag">SEEK CHARACTER</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </div>
 
-
         <div id="characters-stage" class="stage-container">
-            
             <button class="back-to-realms-btn" onclick="returnToRealms()">
                 <svg viewBox="0 0 24 24" width="16" height="16">
                     <path d="M19 12H5M12 19l-7-7 7-7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
@@ -221,26 +188,43 @@
             </div>
 
             <div id="character-roster" class="character-roster-container">
-                
-                <div class="realm-char-card" data-char="neeli" onclick="openCharacterStory('neeli')">
+                <div class="realm-char-card" data-char="odiyan" data-realm="forest" onclick="openCharacterStory('odiyan')">
                     <div class="char-portrait-frame">
-                        <div class="char-aura aura-crimson"></div>
+                        <div class="char-aura aura-dark"></div>
                         <svg class="char-svg-silhouette" viewBox="0 0 200 300">
-                            <path d="M100 50 C80 50 70 80 65 120 C50 160 30 220 20 280 L180 280 C170 220 150 160 135 120 C130 80 120 50 100 50 Z" fill="#03060a"/>
-                            <path d="M85 30 L100 10 L115 30 L125 20 L100 0 L75 20 Z" fill="#0d1b2a"/>
-                            <circle cx="90" cy="70" r="2.5" class="eye-glow"/>
-                            <circle cx="110" cy="70" r="2.5" class="eye-glow"/>
+                            <path d="M100 110 C80 110 65 140 55 180 C45 220 35 250 30 280 L170 280 C165 250 155 220 145 180 C135 140 120 110 100 110 Z" fill="#03060a"/>
+                            <path d="M70 120 C50 100 40 70 70 80 Q85 100 95 115 Z" fill="#020407"/>
+                            <circle cx="88" cy="135" r="2.5" class="eye-glow"/>
+                            <circle cx="112" cy="135" r="2.5" class="eye-glow"/>
                         </svg>
                     </div>
                     <div class="char-card-info">
-                        <h4 class="char-name">KALLIYANKATTU NEELI</h4>
-                        <span class="char-epithet">The Wrathful Spirit of the Palms</span>
-                        <p class="char-teaser">Betrayed in life, her eternal spirit wanders the southern borderlands seeking vengeance.</p>
+                        <h4 class="char-name">ODIYAN</h4>
+                        <span class="char-epithet">The Night Shapeshifter</span>
+                        <p class="char-teaser">Master of Odividya who steps behind ear-ears to morph into dark beasts in midnight shadows.</p>
                         <button class="char-unlock-btn">UNVEIL STORY</button>
                     </div>
                 </div>
 
-                <div class="realm-char-card" data-char="chathan" onclick="openCharacterStory('chathan')">
+                <div class="realm-char-card" data-char="spirit" data-realm="forest" onclick="openCharacterStory('spirit')">
+                    <div class="char-portrait-frame">
+                        <div class="char-aura aura-silver"></div>
+                        <svg class="char-svg-silhouette" viewBox="0 0 200 300">
+                            <path d="M100 70 C85 70 75 100 65 140 C55 180 35 240 25 280 L175 280 C165 240 145 180 135 140 C125 100 115 70 100 70 Z" fill="#03060a"/>
+                            <path d="M100 70 C60 90 40 140 20 200 C50 160 80 120 95 100 Z" fill="#020407"/>
+                            <circle cx="92" cy="100" r="2.5" class="eye-glow"/>
+                            <circle cx="108" cy="100" r="2.5" class="eye-glow"/>
+                        </svg>
+                    </div>
+                    <div class="char-card-info">
+                        <h4 class="char-name">YAKSHI</h4>
+                        <span class="char-epithet">The Enchantress of the Starlight</span>
+                        <p class="char-teaser">A hauntingly beautiful celestial spirit haunting the sweet fragrance of Pala trees.</p>
+                        <button class="char-unlock-btn">UNVEIL STORY</button>
+                    </div>
+                </div>
+
+                <div class="realm-char-card" data-char="chathan" data-realm="forest" onclick="openCharacterStory('chathan')">
                     <div class="char-portrait-frame">
                         <div class="char-aura aura-emerald"></div>
                         <svg class="char-svg-silhouette" viewBox="0 0 200 300">
@@ -260,43 +244,59 @@
                     </div>
                 </div>
 
-                <div class="realm-char-card" data-char="odiyan" onclick="openCharacterStory('odiyan')">
+                <div class="realm-char-card" data-char="marutha" data-realm="forest" onclick="openCharacterStory('marutha')">
                     <div class="char-portrait-frame">
                         <div class="char-aura aura-dark"></div>
                         <svg class="char-svg-silhouette" viewBox="0 0 200 300">
                             <path d="M100 110 C80 110 65 140 55 180 C45 220 35 250 30 280 L170 280 C165 250 155 220 145 180 C135 140 120 110 100 110 Z" fill="#03060a"/>
-                            <path d="M70 120 C50 100 40 70 70 80 Q85 100 95 115 Z" fill="#020407"/>
                             <circle cx="88" cy="135" r="2.5" class="eye-glow"/>
                             <circle cx="112" cy="135" r="2.5" class="eye-glow"/>
                         </svg>
                     </div>
                     <div class="char-card-info">
-                        <h4 class="char-name">ODIYAN</h4>
-                        <span class="char-epithet">The Night Shapeshifter</span>
-                        <p class="char-teaser">Master of Odividya who steps behind ear-ears to morph into dark beasts in midnight shadows.</p>
+                        <h4 class="char-name">MARUTHA</h4>
+                        <span class="char-epithet">The Night Phantom of the Groves</span>
+                        <p class="char-teaser">An ominous spirit lurking in deep midnight woods, feared by lone forest travelers.</p>
                         <button class="char-unlock-btn">UNVEIL STORY</button>
                     </div>
                 </div>
 
-                <div class="realm-char-card" data-char="spirit" onclick="openCharacterStory('spirit')">
+                <div class="realm-char-card" data-char="gulikan" data-realm="forest" onclick="openCharacterStory('gulikan')">
                     <div class="char-portrait-frame">
-                        <div class="char-aura aura-silver"></div>
+                        <div class="char-aura aura-crimson"></div>
                         <svg class="char-svg-silhouette" viewBox="0 0 200 300">
-                            <path d="M100 70 C85 70 75 100 65 140 C55 180 35 240 25 280 L175 280 C165 240 145 180 135 140 C125 100 115 70 100 70 Z" fill="#03060a"/>
-                            <path d="M100 70 C60 90 40 140 20 200 C50 160 80 120 95 100 Z" fill="#020407"/>
-                            <circle cx="92" cy="100" r="2.5" class="eye-glow"/>
-                            <circle cx="108" cy="100" r="2.5" class="eye-glow"/>
+                            <path d="M100 50 C80 50 70 80 65 120 C50 160 30 220 20 280 L180 280 C170 220 150 160 135 120 C130 80 120 50 100 50 Z" fill="#03060a"/>
+                            <circle cx="90" cy="70" r="2.5" class="eye-glow"/>
+                            <circle cx="110" cy="70" r="2.5" class="eye-glow"/>
                         </svg>
                     </div>
                     <div class="char-card-info">
-                        <h4 class="char-name">YAKSHI</h4>
-                        <span class="char-epithet">The Enchantress of the Starlight</span>
-                        <p class="char-teaser">A hauntingly beautiful celestial spirit haunting the sweet fragrance of Pala trees.</p>
+                        <h4 class="char-name">GULIKAN</h4>
+                        <span class="char-epithet">The Herald of Time and Fate</span>
+                        <p class="char-teaser">Born from Shiva's sacred strike, guarding the boundary of mortal destiny and cosmic time.</p>
                         <button class="char-unlock-btn">UNVEIL STORY</button>
                     </div>
                 </div>
 
-                <div class="realm-char-card" data-char="theyyam" onclick="openCharacterStory('theyyam')">
+                <div class="realm-char-card" data-char="neeli" data-realm="temple" onclick="openCharacterStory('neeli')">
+                    <div class="char-portrait-frame">
+                        <div class="char-aura aura-crimson"></div>
+                        <svg class="char-svg-silhouette" viewBox="0 0 200 300">
+                            <path d="M100 50 C80 50 70 80 65 120 C50 160 30 220 20 280 L180 280 C170 220 150 160 135 120 C130 80 120 50 100 50 Z" fill="#03060a"/>
+                            <path d="M85 30 L100 10 L115 30 L125 20 L100 0 L75 20 Z" fill="#0d1b2a"/>
+                            <circle cx="90" cy="70" r="2.5" class="eye-glow"/>
+                            <circle cx="110" cy="70" r="2.5" class="eye-glow"/>
+                        </svg>
+                    </div>
+                    <div class="char-card-info">
+                        <h4 class="char-name">KALLIYANKATTU NEELI</h4>
+                        <span class="char-epithet">The Wrathful Spirit of the Palms</span>
+                        <p class="char-teaser">Betrayed in life, her eternal spirit wanders the southern borderlands seeking vengeance.</p>
+                        <button class="char-unlock-btn">UNVEIL STORY</button>
+                    </div>
+                </div>
+
+                <div class="realm-char-card" data-char="theyyam" data-realm="temple" onclick="openCharacterStory('theyyam')">
                     <div class="char-portrait-frame">
                         <div class="char-aura aura-gold"></div>
                         <svg class="char-svg-silhouette" viewBox="0 0 200 300">
@@ -315,11 +315,61 @@
                     </div>
                 </div>
 
+                <div class="realm-char-card" data-char="muthappan" data-realm="temple" onclick="openCharacterStory('muthappan')">
+                    <div class="char-portrait-frame">
+                        <div class="char-aura aura-gold"></div>
+                        <svg class="char-svg-silhouette" viewBox="0 0 200 300">
+                            <path d="M100 30 A 70 70 0 0 1 170 100 L30 100 A 70 70 0 0 1 100 30 Z" fill="#081420"/>
+                            <path d="M40 120 L160 120 L175 280 L25 280 Z" fill="#03060a"/>
+                            <circle cx="88" cy="140" r="2.5" class="eye-glow"/>
+                            <circle cx="112" cy="140" r="2.5" class="eye-glow"/>
+                        </svg>
+                    </div>
+                    <div class="char-card-info">
+                        <h4 class="char-name">MUTHAPPAN</h4>
+                        <span class="char-epithet">The Compassionate Deity</span>
+                        <p class="char-teaser">A folk deity protector of the downtrodden who welcomes all seekers into his temple grounds.</p>
+                        <button class="char-unlock-btn">UNVEIL STORY</button>
+                    </div>
+                </div>
+
+                <div class="realm-char-card" data-char="chathan_deivam" data-realm="temple" onclick="openCharacterStory('chathan_deivam')">
+                    <div class="char-portrait-frame">
+                        <div class="char-aura aura-emerald"></div>
+                        <svg class="char-svg-silhouette" viewBox="0 0 200 300">
+                            <path d="M100 100 C75 100 60 130 50 170 C40 210 30 250 25 280 L175 280 C170 250 160 210 150 170 C140 130 125 100 100 100 Z" fill="#03060a"/>
+                            <circle cx="88" cy="120" r="3" class="eye-glow"/>
+                            <circle cx="112" cy="120" r="3" class="eye-glow"/>
+                        </svg>
+                    </div>
+                    <div class="char-card-info">
+                        <h4 class="char-name">CHATHAN DEIVAM</h4>
+                        <span class="char-epithet">The Sacred Guardian Entity</span>
+                        <p class="char-teaser">Venerated in sanctified temple shrines as a powerful shield against harm and evil spirits.</p>
+                        <button class="char-unlock-btn">UNVEIL STORY</button>
+                    </div>
+                </div>
+
+                <div class="realm-char-card" data-char="bhagavathi" data-realm="temple" onclick="openCharacterStory('bhagavathi')">
+                    <div class="char-portrait-frame">
+                        <div class="char-aura aura-crimson"></div>
+                        <svg class="char-svg-silhouette" viewBox="0 0 200 300">
+                            <path d="M100 50 C80 50 70 80 65 120 C50 160 30 220 20 280 L180 280 C170 220 150 160 135 120 C130 80 120 50 100 50 Z" fill="#03060a"/>
+                            <circle cx="90" cy="70" r="2.5" class="eye-glow"/>
+                            <circle cx="110" cy="70" r="2.5" class="eye-glow"/>
+                        </svg>
+                    </div>
+                    <div class="char-card-info">
+                        <h4 class="char-name">BHAGAVATHI</h4>
+                        <span class="char-epithet">The Divine Mother Deity</span>
+                        <p class="char-teaser">The supreme, merciful mother deity enshrined across sacred groves and temple sanctums.</p>
+                        <button class="char-unlock-btn">UNVEIL STORY</button>
+                    </div>
+                </div>
             </div>
         </div>
 
     </main>
-
 
     <div id="character-story-overlay" class="story-modal-container">
         <div class="story-modal-card">
@@ -344,7 +394,6 @@
             </div>
         </div>
     </div>
-
 
     <div id="scene-transition-overlay">
         <div class="loader-content">
