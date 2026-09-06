@@ -290,6 +290,14 @@ The project is built using fundamental web technologies:
 | **SVG** | Scalable graphical elements and visual effects |
 | **Google Fonts** | Cinematic typography |
 
+## 🤖 AI Tools
+
+**ChatGPT** and **Google Gemini** were used as creative and development assistants for:
+- 💡 Idea generation and brainstorming
+- ✍️ Storytelling and content refinement
+- 💻 Development assistance and debugging
+- 🎨 Exploring UI/UX and visual concepts
+
 ### Typography
 
 The design uses cinematic serif typography such as:
