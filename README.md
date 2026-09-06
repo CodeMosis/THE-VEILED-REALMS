@@ -319,7 +319,14 @@ THE-VEILED-REALMS/
 ├── script.js
 │
 ├── assets/
-│   └── Final_Design.mp4
+│   ├── Final_Design.mp4
+│   ├── eg1.png
+│   ├── eg2.png
+│   ├── forest_reams.png
+│   ├── reams.png
+│   ├── second_start.png
+│   ├── start.png
+│   └── temple_ream.png
 │
 └── README.md
 ```
