@@ -1,37 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>THE VEILED REALMS</title>
-
+    <title>THE VEILED REALMS | Scene 1: Awakening</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <main id="scene-1" class="scene-container">
-
-    <div class="background">
         
+        <canvas id="particle-canvas"></canvas>
+
         <div class="parallax-layer layer-bg" data-depth="0.02">
             <div class="moonlight-glow"></div>
+            <svg class="bg-forest-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+                <path d="M-50 900 L-50 400 Q100 350 250 500 Q400 650 600 550 T900 600 Q1100 450 1300 520 Q1400 400 1500 450 L1500 900 Z" fill="#04080c" />
+                <path d="M-20 900 C150 700 80 500 0 300 C80 320 200 450 180 900 Z" fill="#020406" />
+                <path d="M1460 900 C1300 650 1380 450 1440 250 C1380 350 1250 500 1280 900 Z" fill="#020406" />
+            </svg>
+        </div>
 
-                <svg class="bg-forest-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
-                    <path d="M-50 900 L-50 400 Q100 350 250 500 Q400 650 600 550 T900 600 Q1100 450 1300 520 Q1400 400 1500 450 L1500 900 Z" fill="#04080c" />
-                    <path d="M-20 900 C150 700 80 500 0 300 C80 320 200 450 180 900 Z" fill="#020406" />
-                    <path d="M1460 900 C1300 650 1380 450 1440 250 C1380 350 1250 500 1280 900 Z" fill="#020406" />
-                </svg>
+        <div class="parallax-layer layer-characters" data-depth="0.05">
+            <svg id="character-ensemble" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMax meet">
+                
+                <!-- ODIAN: Crouching Shapeshifting Shadow Sorcerer -->
+                <g id="char-odiyan" class="char-group char-side side-far">
+                    <!-- Cloaked Humanoid Silhouette with Animal Horns -->
+                    <path d="M160 750 C150 670 140 600 170 540 C190 500 220 480 230 430 C220 400 190 380 180 340 C200 350 225 370 235 390 C250 360 270 340 290 330 C280 360 260 385 250 410 C270 430 285 470 280 520 C270 580 290 660 310 750 Z" fill="#03060a" />
+                    <!-- Feline / Shadow ears & shoulders -->
+                    <path d="M210 430 Q180 410 170 380 Q200 400 220 420 Z" fill="#020407" />
+                    <circle cx="230" cy="415" r="3" class="eye-glow" />
+                    <circle cx="248" cy="415" r="3" class="eye-glow" />
+                </g>
+
+                <!-- THEYYAM: Majestic Ritual Deity with Circular Halo Headpiece -->
+                <g id="char-theyyam" class="char-group char-side side-mid">
+                    <!-- Grand Arc Ritual Crown (Mudi) -->
+                    <path d="M480 120 A 180 180 0 0 1 660 300 L300 300 A 180 180 0 0 1 480 120 Z" fill="#060f18" />
+                    <path d="M480 140 A 160 160 0 0 1 640 300 L320 300 A 160 160 0 0 1 480 140 Z" fill="#03070c" />
+                    <!-- Crown Ornaments -->
+                    <circle cx="480" cy="210" r="35" fill="none" stroke="#d4a017" stroke-width="3" opacity="0.6" />
+                    <circle cx="480" cy="210" r="15" fill="none" stroke="#d4a017" stroke-width="2" opacity="0.8" />
+                    <!-- Broad Shoulders & Tiered Ritual Robe / Skirt -->
+                    <path d="M360 380 L600 380 L630 450 L330 450 Z" fill="#050b12" />
+                    <path d="M330 460 L630 460 L660 750 L300 750 Z" fill="#04080e" />
+                    <path d="M380 460 L480 750 L580 460" fill="#020407" />
+                    <!-- Face & Eyes -->
+                    <path d="M440 320 Q480 300 520 320 L510 370 Q480 390 450 370 Z" fill="#081420" />
+                    <circle cx="465" cy="345" r="3" class="eye-glow" />
+                    <circle cx="495" cy="345" r="3" class="eye-glow" />
+                </g>
+
+                <!-- KUTTICHATHAN: Mystical Pot-bellied Imp/Deity with Staff -->
+                <g id="char-chathan" class="char-group char-side side-mid">
+                    <!-- Pot-bellied Dwarf Silhouette -->
+                    <path d="M730 750 C710 660 700 580 720 530 C700 500 710 440 750 420 C760 390 780 390 790 420 C830 440 840 500 820 530 C840 580 830 660 810 750 Z" fill="#04080e" />
+                    <!-- Crown/Horns -->
+                    <path d="M750 420 L740 380 L760 400 L770 370 L780 400 L800 380 L790 420 Z" fill="#020508" />
+                    <!-- Mystical Staff -->
+                    <line x1="700" y1="750" x2="700" y2="400" stroke="#08131f" stroke-width="6" stroke-linecap="round" />
+                    <circle cx="700" cy="390" r="10" class="rune-glow" />
+                    <!-- Eyes -->
+                    <circle cx="755" cy="450" r="3.5" class="eye-glow" />
+                    <circle cx="785" cy="450" r="3.5" class="eye-glow" />
+                </g>
+
+                <!-- YAKSHI / GHOSTLY SPIRIT: Ethereal Floating Maiden -->
+                <g id="char-spirit" class="char-group char-side side-far">
+                    <!-- Flowing Spectral Dress & Hair -->
+                    <path d="M930 750 C920 650 940 560 960 490 C940 450 950 400 985 370 C1020 400 1030 450 1010 490 C1030 560 1050 650 1040 750 Z" fill="#03060a" />
+                    <!-- Long Flowing Tresses -->
+                    <path d="M985 370 C940 390 910 450 890 520 C920 480 950 440 975 420 Z" fill="#020407" />
+                    <path d="M985 370 C1030 390 1060 450 1080 520 C1050 480 1020 440 995 420 Z" fill="#020407" />
+                    <!-- Glowing Eyes -->
+                    <circle cx="973" cy="420" r="2.5" class="eye-glow" />
+                    <circle cx="997" cy="420" r="2.5" class="eye-glow" />
+                </g>
+
+                <!-- KALLIYANKATTU NEELI: Regal Sorceress Queen (Center Focal) -->
+                <g id="char-neeli" class="char-group char-center">
+                    <!-- Elegant Gothic Saree / Cloak Silhouette -->
+                    <path d="M440 750 C430 600 470 450 520 350 C490 290 510 200 560 160 C590 110 610 110 640 160 C690 200 710 290 680 350 C730 450 770 600 760 750 Z" fill="#010204" />
+                    <!-- Inner Regal Garment -->
+                    <path d="M560 280 L640 280 L670 750 L530 750 Z" fill="#050a12" />
+                    <!-- High Regal Crown & Flowing Hair -->
+                    <path d="M570 170 L600 90 L630 170 L650 140 L600 70 L550 140 Z" fill="#0a1626" />
+                    <path d="M580 150 L600 110 L620 150" stroke="#d4a017" stroke-width="2" fill="none" opacity="0.8" />
+                    <!-- Gold & Crimson Rim Highlights -->
+                    <path d="M520 350 Q600 280 680 350" stroke="rgba(212, 160, 23, 0.6)" stroke-width="2.5" fill="none" class="rim-light-path" />
+                    <path d="M530 750 C550 600 560 480 570 380" stroke="rgba(180, 30, 30, 0.6)" stroke-width="2.5" fill="none" class="rim-light-path" />
+                    <path d="M670 750 C650 600 640 480 630 380" stroke="rgba(212, 160, 23, 0.4)" stroke-width="2.5" fill="none" class="rim-light-path" />
+                    <!-- Piercing Eyes -->
+                    <circle cx="588" cy="210" r="2.5" class="eye-glow" />
+                    <circle cx="612" cy="210" r="2.5" class="eye-glow" />
+                </g>
+
+            </svg>
+        </div>
+
+        <div class="parallax-layer layer-fg" data-depth="0.08">
+            <svg class="fg-leaves-svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+                <path d="M-20 0 Q200 120 350 -20 Z" fill="#010203" />
+                <path d="M1100 -20 Q1250 150 1460 0 Z" fill="#010203" />
+            </svg>
+        </div>
+
+        <div class="ui-layer">
+            <header class="title-container">
+                <h1 id="main-title" class="hidden-element">THE VEILED REALMS</h1>
+                <p id="main-subtitle" class="hidden-element">Where legends still breathe.</p>
+            </header>
+
+            <div class="action-container">
+                <button id="enter-btn" class="hidden-element" onclick="goToScene2()">
+                    <span class="btn-text">ENTER THE UNKNOWN</span>
+                    <svg class="btn-arrow" viewBox="0 0 24 24" width="18" height="18">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                    </svg>
+                </button>
             </div>
+        </div>
 
-    </div>
-
+        <div id="scene-transition-overlay">
+            <div class="loader-content">
+                <div class="ancient-spinner"></div>
+                <h2 id="transition-text">SCENE 2 LOADING...</h2>
+            </div>
+        </div>
     </main>
 
     <script src="script.js"></script>
-
 </body>
-
 </html>
