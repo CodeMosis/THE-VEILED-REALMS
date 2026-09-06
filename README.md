@@ -314,6 +314,7 @@ THE-VEILED-REALMS/
 │   └── Final_Design.mp4
 │
 └── README.md
+```
 
 ### 🎬 Demo Video
 
@@ -321,4 +322,4 @@ THE-VEILED-REALMS/
 
 ## 🌐 Experience the Realm
 
-https://codemosis.github.io/THE-VEILED-REALMS/
+[🌑 **THE VEILED REALMS | Scene 1 & 2: The Descent**](https://codemosis.github.io/THE-VEILED-REALMS/)
